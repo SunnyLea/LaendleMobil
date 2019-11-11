@@ -1,12 +1,14 @@
 # LaendleMobil
 
-Ziel:    in ländliche Regionen die Mobilität fördern durch eine benutzerfreundliche Anwendung (Umweltgedanke, Kostenersparnis)
-Grundfunktionalität:      Fahrten einstellen, nach ihnen suchen und buchen können
+Ziel:    Mobilität in ländlichen Regionen mit Hilfe einer benutzerfreundlichen Anwendung fördern (Umweltgedanke, Kostenersparnis)
+
+Grundfunktionalitäten:      Fahrten einstellen, nach ihnen suchen und buchen können
 
 Zusatzfunktionen:
-  o Personen müssen Name und Mailadresse eingeben und bekommen ne Mail wenn man gebucht wurde oder gebucht hat
+
+  o Personen müssen Name und Mailadresse eingeben und werden per Mail benachrichtigt wenn man gebucht wurde oder gebucht hat
   
-  o Mögliche können eingegeben werden
+  o Mögliche Fahrten können eingegeben werden
   
   o Tägliche Fahrten wie der Weg zur Arbeit oder wöchentliche Fahrten wie der Weg zu Sport können eingestellt werden
    
