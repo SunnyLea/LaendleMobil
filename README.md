@@ -2,7 +2,7 @@
 
 Ziel:    Mobilität in ländlichen Regionen mit Hilfe einer benutzerfreundlichen Anwendung fördern (Umweltgedanke, Kostenersparnis)
 
-Grundfunktionalitäten:      Fahrten einstellen, nach ihnen suchen und buchen können
+Grundfunktionalitäten:      Fahrten einstellen, nach ihnen suchen und buchen können !
 
 Zusatzfunktionen:
 
