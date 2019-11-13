@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Ländlemobil</title>
-    </head>
 
-    <body>
+<head>
+    <link rel="stylesheet" href="css-grid.css">
+    <meta charset="UTF-8">
+    <title>Ländlemobil</title>
+</head>
 
+<body>
+    <div class="grid-container">
+        <div class="headerBar">
+            <h1>Ländlemobil </h1>
+        </div>
 
-        <h1>Ländlemobil</h1>
-        <h3>Fahrt suchen</h3>
-        <section>
+        <div class="content">
+            <h3>Fahrt suchen</h3>
+            <section>
+
+                <table>
+                    <tr>
+                        <td>Abfahrtsort: </td>
+                        <td><input type="text"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Ankunftsort: </td>
+                        <td><input type="text"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Datum: </td>
+                        <td><input type="text"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Zeitraum: </td>
+                        <td>
+                            <select>
+                                <option>vor 7.00 Uhr</option>
+                                <option>zwischen 7.00 und 9.00 Uhr</option>
+                                <option>...</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button>Fahrt suchen</button>
+            </section>
             
-            <table>
-                <tr>
-                    <td>Abfahrtsort: </td>
-                    <td><input type="text"></input></td>
-                </tr>
-                <tr>
-                    <td>Ankunftsort: </td>
-                    <td><input type="text"></input></td>
-                </tr>
-                <tr>
-                    <td>Datum: </td>
-                    <td><input type="text"></input></td>
-                </tr>
-                <tr>
-                    <td>Zeitraum: </td>
-                    <td>
-                        <select>
-                            <option>vor 7.00 Uhr</option>
-                            <option>zwischen 7.00 und 9.00 Uhr</option>
-                            <option>...</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <button>Fahrt suchen</button>
-        </section>
-        <br/>
+        </div>
+        <br />
         <a href="Fahrt_anbieten.html">Fahrt anbieten</a>
-    </body>
+
+    </div>
+</body>
 
 </html>
