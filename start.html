@@ -30,6 +30,7 @@
 </head>
 
 <body>
+
     <div class="fullscreen">
 
         <div class="grid-container">
@@ -43,23 +44,23 @@
                 <h2>Fahrt suchen</h2>
                 <section>
 
-                    <table>
+                    <table id="table">
                         <tr>
                             <td>Abfahrtsort: </td>
-                            <td><input type="text"></input></td>
+                            <td><input id="seekedStart" type="text"></input></td>
                         </tr>
                         <tr>
                             <td>Ankunftsort: </td>
-                            <td><input type="text"></input></td>
+                            <td><input id="seekedDestination" type="text"></input></td>
                         </tr>
                         <tr>
                             <td>Datum: </td>
-                            <td><input type="date"></input></td>
+                            <td><input id="seekedDate" type="date"></input></td>
                         </tr>
                         <tr>
                             <td>Zeitraum: </td>
                             <td>
-                                <select>
+                                <select id="seekedTime">
                                     <option>vor 7.00 Uhr</option>
                                     <option>zwischen 7.00 und 9.00 Uhr</option>
                                     <option>...</option>
@@ -68,9 +69,31 @@
                         </tr>
                     </table>
                     <br />
-                    <button>Fahrt suchen</button>
+                    <button onclick="showTable()" onclick="checkEntries()">Fahrt suchen</button>
                 </section>
 
+                <br/>
+
+                <section>
+                    <table id="foundDrive">
+                        <tr>
+                            <th>Anbieter</th>
+                            <th>Abfahrtsort</th>
+                            <th>Ankunftsort</th>
+                            <th>Zeit</th>
+                        </tr>
+                        <tr>
+                            <td>Beispielanbieter</td>
+                            <td>Start</td>
+                            <td>Ziel</td>
+                            <td>Fahrtzeit</td>
+                            <td>
+                                <button>Zur Buchung</button>
+                            </td>
+                        </tr>
+                    </table>
+
+                </section>
 
                 <br />
 
@@ -78,6 +101,8 @@
         </div>
 
     </div>
+
+    <script type="text/javascript" src="functions.js"></script>
 
 </body>
 
