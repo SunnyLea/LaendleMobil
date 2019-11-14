@@ -6,81 +6,85 @@
     <meta charset="UTF-8">
     <title>Ländlemobil</title>
     <style type="text/css">
-        body{
+        body {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 150%;
-            
+
         }
-        input{
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 150%;
-        }
-        select{
+
+        input {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 150%;
         }
-        button{
+
+        select {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 150%;
         }
-        </style>
+
+        button {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 150%;
+        }
+    </style>
 </head>
 
 <body>
     <div class="fullscreen">
-    <div class="grid-container">
-        <div class="headerBar">
-            <h1>Ländlemobil</h1>
+        <div class="grid-container">
+            <div class="headerBar">
+                <img src="img/LogoWEBFertigRichtig.png" style="width: 40%;height: 80%;">
+                <a href="start.html">Zurück zur Startseite</a>
+            </div>
+            <div class="content">
+                <h2>Fahrt anbieten</h2>
+                <section>
+
+                    <table>
+                        <tr>
+                            <td>Name: </td>
+                            <td><input type="text"></input> </td>
+                        </tr>
+                        <tr>
+                            <td>Email: </td>
+                            <td><input type="email"></input>
+                        </tr>
+                        <tr>
+                            <td>Abfahrtsort: </td>
+                            <td><input type="text"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Ankunftsort: </td>
+                            <td><input type="text"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Datum: </td>
+                            <td><input type="date"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Zeitraum: </td>
+                            <td>
+                                <select>
+                                    <option>vor 7.00 Uhr</option>
+                                    <option>zwischen 7.00 und 9.00 Uhr</option>
+                                    <option>...</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <button>Fahrt anbieten</button>
+
+
+                </section>
+
+
+                <br />
+
+            </div>
         </div>
-        <div class="content">
-            <h2>Fahrt anbieten</h2>
-            <section>
-
-                <table>
-                    <tr>
-                        <td>Name: </td>
-                        <td><input type="text"></input> </td>
-                    </tr>
-                    <tr>
-                        <td>Email: </td>
-                        <td><input type="email"></input>
-                    </tr>
-                    <tr>
-                        <td>Abfahrtsort: </td>
-                        <td><input type="text"></input></td>
-                    </tr>
-                    <tr>
-                        <td>Ankunftsort: </td>
-                        <td><input type="text"></input></td>
-                    </tr>
-                    <tr>
-                        <td>Datum: </td>
-                        <td><input type="date"></input></td>
-                    </tr>
-                    <tr>
-                        <td>Zeitraum: </td>
-                        <td>
-                            <select>
-                                <option>vor 7.00 Uhr</option>
-                                <option>zwischen 7.00 und 9.00 Uhr</option>
-                                <option>...</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <br/>
-                <button>Fahrt anbieten</button>
-
-
-            </section>
-        
-
-        <br />
-        <a href="start.html">Zurück zur Startseite</a>
     </div>
-</div>
-</div>
-    
+
 </body>
 
 </html>
