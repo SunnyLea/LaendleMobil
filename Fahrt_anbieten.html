@@ -66,7 +66,8 @@
                         <tr>
                             <td>Zeitraum: </td>
                             <td>
-                                <select>
+                                <select id="selectFA">
+                                    <option>Bitte auswählen ...</option>
                                     <option>vor 7.00 Uhr</option>
                                     <option>zwischen 7.00 und 9.00 Uhr</option>
                                     <option>...</option>
@@ -75,7 +76,7 @@
                         </tr>
                     </table>
                     <br />
-                    <button>Fahrt anbieten</button>
+                    <button onclick="checkEntriesFA()">Fahrt anbieten</button>
 
 
                 </section>
