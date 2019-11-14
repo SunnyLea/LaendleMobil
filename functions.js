@@ -1,7 +1,6 @@
 function showTable() {
     let foundDrive = document.getElementById("foundDrive");
     foundDrive.style.display='block'; 
-    checkEntries();
 }
 
 function start(){
@@ -12,10 +11,21 @@ function start(){
 function checkEntries(){
    /* for(var i=0; i<)*/
    let inputs = document.getElementsByTagName('input');
+   let noInput = false;
    for(let i = 0; i<inputs.length; i++){
        if(inputs[i].value == ""){
-           alert("Bitte Daten eingeben");  
+           noInput = true;
        }
+       else{
+           showTable();
+       }
+   }
+   let select = document.getElementsByTagName('select');
+   if(select.value === "Bitte auswählen ..."){
+       noInput = true;
+   }
+   if(noInput){
+        alert("Bitte Daten eingeben");
    }
 }
 
