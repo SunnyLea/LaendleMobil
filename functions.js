@@ -34,22 +34,22 @@ function showTable() {
 
 /*
 function checkEntriesFA(){
-   let inputs = document.getElementsByTagName('input');
-   let noInput = false;
+   let inputsFA = document.getElementsByTagName('input');
+   let noInputFA = false;
 
-   for(let i = 0; i < inputs.length; i++){
-       if(inputs[i].value == ""){
-           noInput = true;
+   for(let i = 0; i < inputsFA.length; i++){
+       if(inputsFA[i].value == ""){
+           noInputFA = true;
        }
    }
-   let select = document.getElementById('selectFA');
-   if(select.value == "Bitte auswählen ..."){
-       noInput = true;
+   let selectFA = document.getElementById('selectFA');
+   if(selectFA.value == "Bitte auswählen ..."){
+       noInputFA = true;
    }
-    if(!noInput){
+    if(!noInputFA){
        
     }
-    if(noInput){
+    if(noInputFA){
         alert("Bitte Daten eingeben");
    }
 }
