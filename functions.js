@@ -32,10 +32,12 @@ function showTable() {
     foundDrive.style.display='block'; 
 }
 
-/*
+
 function checkEntriesFA(){
    let inputsFA = document.getElementsByTagName('input');
    let noInputFA = false;
+ /*  let today = new Date();
+   let givenDate = document.getElementById('givenDate');*/
 
    for(let i = 0; i < inputsFA.length; i++){
        if(inputsFA[i].value == ""){
@@ -47,11 +49,15 @@ function checkEntriesFA(){
        noInputFA = true;
    }
     if(!noInputFA){
-       
+       /* alert("Daten werden gespeichert"); */
     }
+    if(givenDate.value.getTime() < today.getTime()) {
+        alert("Bitte Datum in der Zukunft angeben");
+    }
+    
     if(noInputFA){
-        alert("Bitte Daten eingeben");
+        alert("Bitte Daten eingeben"); 
    }
 }
-*/
+
 
