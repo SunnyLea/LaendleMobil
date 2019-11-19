@@ -23,6 +23,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
     width: 100vw;
     height: 100vh;
     display: flex;
