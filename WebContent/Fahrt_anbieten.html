@@ -65,63 +65,66 @@
                 <br />
                 <h2>Fahrt anbieten</h2>
                 <section>
-
-                    <table>
-                        <tr>
-                            <td>Vorname: </td>
-                            <td><input type="text"></input> </td>
-                        </tr>
-                        <tr>
-                            <td>Name: </td>
-                            <td><input type="text"></input> </td>
-                        </tr>
-                        <tr>
-                            <td>Email: </td>
-                            <td><input type="email"></input>
-                        </tr>
-                        <tr>
-                            <td>Abfahrtsort: </td>
-                            <td><input type="text"></input></td>
-                        </tr>
-                        <tr>
-                            <td>Ankunftsort: </td>
-                            <td><input type="text"></input></td>
-                        </tr>
-                        <tr>
-                            <td>Datum: </td>
-                            <td><input type="date" id="givenDate"></input></td>
-                        </tr>
-                        <tr>
-                            <td>Abfahrtszeit: </td>
-                            <td><input type="text"></input></td>
-                        </tr>
-                        <tr>
-                            <td>Ankunftszeit: </td>
-                            <td><input type="text"></input></td>
-                        </tr>
-                        <tr>
-                            <td>Zeitraum: </td>
-                            <td>
-                                <select id="selectFA">
-                                    <option>Bitte auswählen ...</option>
-                                    <option>vor 7.00 Uhr</option>
-                                    <option>zwischen 7.00 und 9.00 Uhr</option>
-                                    <option>...</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Freie Sitzplätze: </td>
-                            <td><input type="text"></input></td>
-                        </tr>
-                        <tr>
-                            <td>Preis: </td>
-                            <td><input type="text"></input></td>
-                        </tr>
-                    </table>
-                    <br />
-                    <button onclick="checkEntriesFA()">Fahrt anbieten</button>
-
+                    <form action="/C:\Users\D073520\git\LaendleMobil\php\sendData.php" method="POST">
+                        <table>
+                            <tr>
+                                <td>Vorname: </td>
+                                <td><input type="text" name="vorname"></input> </td>
+                            </tr>
+                            <tr>
+                                <td>Name: </td>
+                                <td><input type="text" name="name"></input> </td>
+                            </tr>
+                            <tr>
+                                <td>Email: </td>
+                                <td><input type="email" name="email"></input>
+                            </tr>
+                            <tr>
+                                <td>Abfahrtsort: </td>
+                                <td><input type="text" name="abfahrtsort"></input></td>
+                            </tr>
+                            <tr>
+                                <td>Ankunftsort: </td>
+                                <td><input type="text" name="ankunftsort"></input></td>
+                            </tr>
+                            <tr>
+                                <td>Datum: </td>
+                                <td><input type="date" id="givenDate" name="datum"></input></td>
+                            </tr>
+                            <tr>
+                                <td>Abfahrtszeit: </td>
+                                <td><input type="text" name="abfahrtszeit"></input></td>
+                            </tr>
+                            <tr>
+                                <td>Ankunftszeit: </td>
+                                <td><input type="text" name="ankunftszeit"></input></td>
+                            </tr>
+                            <!--
+                            <tr>
+                                <td>Zeitraum: </td>
+                                <td>
+                                    <select id="selectFA">
+                                        <option>Bitte auswählen ...</option>
+                                        <option>vor 7.00 Uhr</option>
+                                        <option>zwischen 7.00 und 9.00 Uhr</option>
+                                        <option>...</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        -->
+                            <tr>
+                                <td>Freie Sitzplätze: </td>
+                                <td><input type="text"></input></td>
+                            </tr>
+                            <tr>
+                                <td>Preis: </td>
+                                <td><input type="text"></input></td>
+                            </tr>
+                        </table>
+                        <input type="submit" name="" value="abschicken">
+                        <br />
+                        <button onclick="checkEntriesFA()">Fahrt anbieten</button>
+                    </form>
 
                 </section>
 
