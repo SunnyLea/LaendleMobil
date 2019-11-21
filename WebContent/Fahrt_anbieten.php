@@ -65,7 +65,7 @@
                 <br />
                 <h2>Fahrt anbieten</h2>
                 <section>
-                    <form action="/C:\Users\D073520\git\LaendleMobil\php\sendData.php" method="POST">
+                    <form action="/C:\Users\D073520\git\LaendleMobil\WebContent\Fahrt_anbieten.php" method="POST">
                         <table>
                             <tr>
                                 <td>Vorname: </td>
@@ -99,7 +99,6 @@
                                 <td>Ankunftszeit: </td>
                                 <td><input type="text" name="ankunftszeit"></input></td>
                             </tr>
-                            <!--
                             <tr>
                                 <td>Zeitraum: </td>
                                 <td>
@@ -111,7 +110,6 @@
                                     </select>
                                 </td>
                             </tr>
-                        -->
                             <tr>
                                 <td>Freie Sitzplätze: </td>
                                 <td><input type="text"></input></td>
@@ -127,7 +125,24 @@
                     </form>
 
                 </section>
+               
+               <?php
+$vorname = $_POST["vorname"];
+$name = $_POST["name"];
+$email = $_POST["email"];
+$abfahrtsort = $_POST["abfahrtsort"];
+$ankunftsort = $_POST["ankunftsort"];
+$datum = $_POST["datum"];
+$abfahrtszeit = $_POST["abfahrtszeit"];
+$ankunftszeit = $_POST["ankunftszeit"];
+$freieSitzplaetze = $_POST["freieSitzplaetze"];
+$preis = $_POST["preis"];
 
+$con mysqli_connect("localhost", "root", "");
+mysqli_select_db($con, "Laendlemobil");
+mysql_query($con, "insert into drives (vorname, name, email, abfahrtsort, ankunftsort, datum, abfahrtszeit, ankunftszeit, feieSitzplaetze, preis") 
+values ('$vorname', '$name', '$email', '$abfahrtsort', '$ankunftsort', '$datum', '$abfahrtszeit', '$ankunftszeit', '$freieSitzplaetze', '$preis');
+?>
 
                 <br />
 
