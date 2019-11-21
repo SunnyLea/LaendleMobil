@@ -32,7 +32,7 @@
 }
 
 html, body{
-    background-image: url("../img/AutoStraße.png");
+    background-image: url("AutoStraße.png");
     background-size: cover;
     background-attachment: fixed;
 }
