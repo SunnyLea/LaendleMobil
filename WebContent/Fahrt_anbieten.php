@@ -55,18 +55,14 @@
                         </div>
                     </div>
                 </nav>
-
                 <br />
-
-                <!--<a href="index.html">Zurück zur Startseite</a>-->
             </div>
-
             <div class="content">
                 <br />
                 <h2>Fahrt anbieten</h2>
                 <section>
-                    <form action="Fahrt_anieten".php" method="POST">
-                        <table>
+                    <form id="form_fa" action="sendData.php" method="POST">
+                       <table>
                             <tr>
                                 <td>Vorname: </td>
                                 <td><input type="text" name="vorname"></input> </td>
@@ -75,7 +71,6 @@
                                 <td>Name: </td>
                                 <td><input type="text" name="name"></input> </td>
                             </tr>
-                            <!--
                             <tr>
                                 <td>Email: </td>
                                 <td><input type="email" name="email"></input>
@@ -103,7 +98,7 @@
                             <tr>
                                 <td>Zeitraum: </td>
                                 <td>
-                                    <select id="selectFA">
+                                    <select id="selectFA" name="zeitraum">
                                         <option>Bitte auswählen ...</option>
                                         <option>vor 7.00 Uhr</option>
                                         <option>zwischen 7.00 und 9.00 Uhr</option>
@@ -113,17 +108,16 @@
                             </tr>
                             <tr>
                                 <td>Freie Sitzplätze: </td>
-                                <td><input type="text"></input></td>
+                                <td><input type="text" name="freieSitzplaetze"></input></td>
                             </tr>
                             <tr>
                                 <td>Preis: </td>
-                                <td><input type="text"></input></td>
+                                <td><input type="text" name="preis"></input></td>
                             </tr>
-                        -->
-                        </table>
-                        <input type="submit" name="" value="abschicken">
+                       </table> 
+                        <input type="submit" name="submit" onclick="checkEntriesFA()" value="Fahrt anbieten"> 
                         <br />
-                        <button onclick="checkEntriesFA()">Fahrt anbieten</button>
+                     <!--   <button onclick="checkEntriesFA()">Fahrt anbieten</button> -->
                     </form>
 
                 </section>

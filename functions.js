@@ -1,10 +1,7 @@
+start();
 function start(){
     let foundDrive = document.getElementById("foundDrive");
     foundDrive.style.display='none'; 
-}
-
-start();
-
 
 function checkEntriesStart(){
    let inputs = document.getElementsByTagName('input');
@@ -32,6 +29,10 @@ function showTable() {
     foundDrive.style.display='block'; 
 }
 
+let form_fa = document.getElementById('form_fa');
+form_fa.addEventListener('submit', function (evt){
+        evt.preventDefault();
+})
 
 function checkEntriesFA(){
    let inputsFA = document.getElementsByTagName('input');
@@ -49,15 +50,21 @@ function checkEntriesFA(){
        noInputFA = true;
    }
     if(!noInputFA){
-       /* alert("Daten werden gespeichert"); */
+        alert("Daten wurden gespeichert"); 
     }
-    if(givenDate.value.getTime() < today.getTime()) {
-        alert("Bitte Datum in der Zukunft angeben");
-    }
+ //   if(givenDate.value.getTime() < today.getTime()) {
+ //       alert("Bitte Datum in der Zukunft angeben");
+  //  }
     
     if(noInputFA){
-        alert("Bitte Daten eingeben"); 
+     //   alert("Bitte Daten eingeben"); 
+        msg.innerHTML = 'Eingeben';
+        let form_fa = document.getElementById('form_fa');
+        form_fa.addEventListener("submit", function (evt){
+                evt.preventDefault();
+        })
    }
+}
 }
 
 

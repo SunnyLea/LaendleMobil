@@ -1,4 +1,6 @@
 <?php
+
+if(!empty($_POST["submit"])){
 $vorname = $_POST["vorname"];
 $name = $_POST["name"];
 $email = $_POST["email"];
@@ -11,13 +13,11 @@ $zeitraum = $_POST["zeitraum"];
 $freieSitzplaetze = $_POST["freieSitzplaetze"];
 $preis = $_POST["preis"];
 
-echo $vorname;
-echo $datum;
 echo $preis;
 
 $con = mysqli_connect("localhost", "root", "", "Laendlemobil") or die("Could not connect to server.");
-$eintrag = "insert into drives (vorname, name, email, abfahrtsort, ankunftsort, datum, abfahrtszeit, ankunftszeit, zeitraum, feieSitzplaetze, preis) 
-values ('$vorname', '$name', '$email', '$abfahrtsort', '$ankunftsort', '$datum', '$abfahrtszeit', '$ankunftszeit', '$zeitraum', $freieSitzplaetze', '$preis')";
+$eintrag = "INSERT INTO drives (vorname, name, email, abfahrtsort, ankunftsort, datum, abfahrtszeit, ankunftszeit, zeitraum, freieSitzplaetze, preis)
+VALUES ('$vorname', '$name', '$email', '$abfahrtsort', '$ankunftsort', '$datum', '$abfahrtszeit', '$ankunftszeit', '$zeitraum', '$freieSitzplaetze', '$preis')";
 $eintragen = mysqli_query($con, $eintrag);
 
 if($eintragen == true){
@@ -26,4 +26,5 @@ if($eintragen == true){
     echo "Error";
 }
 
+}
 ?>
