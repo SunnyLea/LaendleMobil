@@ -57,7 +57,7 @@ function checkEntriesFA(){
   //  }
     
     if(noInputFA){
-     //   alert("Bitte Daten eingeben"); 
+        alert("Bitte Daten eingeben"); 
         msg.innerHTML = 'Eingeben';
         let form_fa = document.getElementById('form_fa');
         form_fa.addEventListener("submit", function (evt){
