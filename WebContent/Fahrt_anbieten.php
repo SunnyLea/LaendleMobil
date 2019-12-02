@@ -89,11 +89,11 @@
                             </tr>
                             <tr>
                                 <td>Abfahrtszeit: </td>
-                                <td><input type="text" name="abfahrtszeit"></input></td>
+                                <td><input type="time" name="abfahrtszeit"></input></td>
                             </tr>
                             <tr>
                                 <td>Ankunftszeit: </td>
-                                <td><input type="text" name="ankunftszeit"></input></td>
+                                <td><input type="time" name="ankunftszeit"></input></td>
                             </tr>
                             <tr>
                                 <td>Zeitraum: </td>
@@ -102,13 +102,19 @@
                                         <option>Bitte auswählen ...</option>
                                         <option>vor 7.00 Uhr</option>
                                         <option>zwischen 7.00 und 9.00 Uhr</option>
-                                        <option>...</option>
+                                        <option>zwischen 9.00 und 11.00 Uhr</option>
+                                        <option>zwischen 11.00 und 13.00 Uhr</option>
+                                        <option>zwischen 13.00 und 15.00 Uhr</option>
+                                        <option>zwischen 15.00 und 17.00 Uhr</option>
+                                        <option>zwischen 17.00 und 19.00 Uhr</option>
+                                        <option>zwischen 19.00 und 21.00 Uhr</option>
+                                        <option>nach 21.00 Uhr</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Freie Sitzplätze: </td>
-                                <td><input type="text" name="freieSitzplaetze"></input></td>
+                                <td><input type="number" name="freieSitzplaetze" min="1" max="10"></input></td>
                             </tr>
                             <tr>
                                 <td>Preis: </td>

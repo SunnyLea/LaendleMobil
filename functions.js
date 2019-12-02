@@ -29,16 +29,12 @@ function showTable() {
     foundDrive.style.display='block'; 
 }
 
-let form_fa = document.getElementById('form_fa');
-form_fa.addEventListener('submit', function (evt){
-        evt.preventDefault();
-})
-
 function checkEntriesFA(){
    let inputsFA = document.getElementsByTagName('input');
    let noInputFA = false;
  /*  let today = new Date();
-   let givenDate = document.getElementById('givenDate');*/
+     let todayRounded = new Date(today.getFullYear, today.getMonth, today.getDate);
+     let givenDate = document.getElementById('givenDate'); */
 
    for(let i = 0; i < inputsFA.length; i++){
        if(inputsFA[i].value == ""){
@@ -50,17 +46,16 @@ function checkEntriesFA(){
        noInputFA = true;
    }
     if(!noInputFA){
-        alert("Daten wurden gespeichert"); 
+        alert("Daten wurden erfolgreich gespeichert"); 
     }
- //   if(givenDate.value.getTime() < today.getTime()) {
- //       alert("Bitte Datum in der Zukunft angeben");
-  //  }
-    
+ /*  if(givenDate.value.getTime() < todayRounded.getTime()) {
+     alert("Bitte Datum in der Zukunft angeben");
+     } */  
+
     if(noInputFA){
-        alert("Bitte Daten eingeben"); 
-        msg.innerHTML = 'Eingeben';
+        alert("Hello World"); 
         let form_fa = document.getElementById('form_fa');
-        form_fa.addEventListener("submit", function (evt){
+        form_fa.addEventListener("click", function (evt){
                 evt.preventDefault();
         })
    }
