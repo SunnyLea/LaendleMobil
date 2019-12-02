@@ -27,7 +27,7 @@ $eintragen = mysqli_query($con, $eintrag);
 
 if($eintragen == true){
     echo "Entry successful";
-    header ( 'Location: Fahrt_anbieten.php' );
+ //   header ( 'Location: Fahrt_anbieten.php' );
 } else{
     echo "Error";
 }

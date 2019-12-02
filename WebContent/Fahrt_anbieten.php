@@ -121,7 +121,7 @@
                                 <td><input type="text" name="preis"></input></td>
                             </tr>
                        </table> 
-                        <input type="submit" name="submit" onclick="checkEntriesFA()" value="Fahrt anbieten"> 
+                        <input type="button" name="submit" onclick="checkEntriesFA()" value="Fahrt anbieten"> 
                         <br />
                      <!--   <button onclick="checkEntriesFA()">Fahrt anbieten</button> -->
                     </form>
