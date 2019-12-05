@@ -47,7 +47,12 @@ function checkEntriesFA() {
         noInputFA = true;
     }
      if(!noInputFA){
-        
+        var http = new XMLHttpRequest();
+        var url = 'sendData.php';
+ //       var params = 'orem=ipsum&name=binny';
+        http.open('POST', url, true);
+ //       XMLHttpRequest("POST", "sendData.php");
+        alert("Daten wurden erfolgreich gespeichert");
      }
      if(noInputFA){
          alert("Bitte Daten eingeben");
