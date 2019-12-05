@@ -19,9 +19,9 @@
 }
 
 .fullscreen{
-    background-image: url("../img/AutoStraße.png");
+    /*background-image: url("../img/AutoStraße.png");*/
     background-size: cover;
-    background-repeat: no-repeat;
+    /*background-repeat: no-repeat;*/
     background-position: center;
     background-attachment: fixed;
     width: 100vw;
@@ -29,4 +29,10 @@
     display: flex;
     justify-content: center;
     /*align-items: center;*/
+}
+
+html, body{
+    background-image: url("../img/AutoStraße.png");
+    background-size: cover;
+    background-attachment: fixed;
 }
