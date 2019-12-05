@@ -30,6 +30,47 @@
             font-size: 120%;
         }
     </style>
+    <script>
+        function checkEntries() {
+            
+            let inputsFA = document.getElementsByTagName('input');
+                let noInputFA = false;
+                let dateInFuture = false;
+
+                for (let j = 0; j < inputsFA.length; j++) {
+                    if (inputsFA[j].value == "") {
+                        noInputFA = true;
+                    }
+                }
+                let selectFA = document.getElementById('selectFA');
+                if (selectFA.value == "Bitte auswählen ...") {
+                    noInputFA = true;
+                }
+                if (noInputFA) {
+                    alert("Bitte Daten eingeben");
+                    return false;
+                }
+                
+
+                 let today = new Date();
+                 let todayRounded = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+                 let givenDate = document.getElementById('givenDate');
+                 let givenDateString = givenDate.value;
+                 let givenDateArray = givenDateString.split('-');
+                 let givenDateFinal = new Date(givenDateArray[0], givenDateArray[1]-1, givenDateArray[2]);
+                //   alert(givenDateFinal);
+                 
+            if(givenDateFinal.getTime() < todayRounded.getTime()) {
+            dateInFuture = true;
+            alert("Bitte Datum in der Zukunft angeben");
+            return false;
+            }
+
+            if (!noInputFA && !dateInFuture) {
+                    alert("Daten erfolgreich gespeichert")
+                }
+        }
+    </script>
 </head>
 
 <body>
@@ -56,7 +97,7 @@
                 <br />
                 <h2>Fahrt anbieten</h2>
                 <section>
-                    <form id="form_fa" action="sendData.php" method="POST">
+                    <form onsubmit="return checkEntries()" id="form_fa" action="sendData.php" method="POST">
                         <table>
                             <tr>
                                 <td>Vorname: </td>
@@ -116,14 +157,10 @@
                                 <td><input type="text" name="preis"></input></td>
                             </tr>
                         </table>
-                        <input type="button" name="submit" onclick="checkEntriesFA()" value="Fahrt anbieten">
-                        <br />
-                        <!--   <button onclick="checkEntriesFA()">Fahrt anbieten</button> -->
+                        <input type="submit" name="submit" value="Fahrt anbieten">
                     </form>
-
                 </section>
                 <br />
-
             </div>
         </div>
     </div>
