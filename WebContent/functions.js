@@ -1,9 +1,7 @@
+start();
 function start(){
     let foundDrive = document.getElementById("foundDrive");
     foundDrive.style.display='none'; 
-}
-
-start();
 
 function checkEntriesStart(){
    let inputs = document.getElementsByTagName('input');
@@ -30,35 +28,4 @@ function showTable() {
     let foundDrive = document.getElementById("foundDrive");
     foundDrive.style.display='block'; 
 }
-
-
-function checkEntriesFA() {
-    
-    let inputsFA = document.getElementsByTagName('input');
-    let noInputFA = false;
- 
-    for(let j = 0; j < inputsFA.length; j++){
-        if(inputsFA[j].value == ""){
-            noInputFA = true;
-        }
-    }
-    let selectFA = document.getElementById('selectFA');
-    if(selectFA.value == "Bitte auswählen ..."){
-        noInputFA = true;
-    }
-     if(!noInputFA){
-        var http = new XMLHttpRequest();
-        var url = 'sendData.php';
- //       var params = 'orem=ipsum&name=binny';
-        http.open('POST', url, true);
- //       XMLHttpRequest("POST", "sendData.php");
-        alert("Daten wurden erfolgreich gespeichert");
-     }
-     if(noInputFA){
-         alert("Bitte Daten eingeben");
-    }
-    
- }
-
-
-
+}
