@@ -101,9 +101,9 @@
         </div>
     </nav>
 
-    <div class="fullscreen">
+    
         <div class="grid-container">
-
+        <div class="show"></div>
 
             <div class="content">
                 <br />
@@ -201,8 +201,7 @@
                                </tbody>
                                </table>
            
-               </div>
-                           <br />
+              
                        </div>
                        
                 </section>

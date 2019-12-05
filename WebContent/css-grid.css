@@ -1,38 +1,61 @@
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto 36% auto auto;
+    grid-template-rows: 10% auto 10%;
     
+}
+
+.show {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-color: rgba(0, 0, 0, 0.199);
 }
 
 .headerBar{
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 5;
 
 }
 
 .content{
-    grid-column-start: 2;
-    grid-column-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
 }
 
-.fullscreen{
-    /*background-image: url("../img/AutoStraße.png");*/
+input {
+    
+    block-size: 45px;
+    inline-size: 400px;
+}
+
+select {
+    block-size: 45px;
+    inline-size: 400px;
+}
+
+/*.fullscreen{
+    /*background-image: url("../img/AutoStraße.png");
     background-size: cover;
-    /*background-repeat: no-repeat;*/
+    /*background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
-    /*align-items: center;*/
-}
+    /*align-items: center;
+}*/
 
 html, body{
     background-image: url("AutoStraße.png");
     background-size: cover;
     background-attachment: fixed;
+}
+
+nav {
+    margin: 1%;
 }

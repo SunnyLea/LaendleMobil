@@ -66,8 +66,8 @@
             }
 
             if (!noInputFA && !dateInFuture) {
-                   alert("Daten erfolgreich gespeichert")
-                
+                alert("Daten erfolgreich gespeichert")
+
                 // Swal.fire(
                 //     'Good job!',
                 //     'You clicked the button!',
@@ -96,81 +96,80 @@
             </div>
         </div>
     </nav>
-    <div class="fullscreen">
-        <div class="grid-container">
 
+    <div class="grid-container">
+        <div class="show"></div>
 
-            <div class="content">
-                <br />
-                <h2>Fahrt anbieten</h2>
-                <section>
-                    <form onsubmit="return checkEntries()" id="form_fa" action="sendData.php" method="POST">
-                        <table>
-                            <tr>
-                                <td>Vorname: </td>
-                                <td><input type="text" name="vorname"></input> </td>
-                            </tr>
-                            <tr>
-                                <td>Name: </td>
-                                <td><input type="text" name="nachname"></input> </td>
-                            </tr>
-                            <tr>
-                                <td>Email: </td>
-                                <td><input type="email" name="email"></input>
-                            </tr>
-                            <tr>
-                                <td>Abfahrtsort: </td>
-                                <td><input type="text" name="abfahrtsort"></input></td>
-                            </tr>
-                            <tr>
-                                <td>Ankunftsort: </td>
-                                <td><input type="text" name="ankunftsort"></input></td>
-                            </tr>
-                            <tr>
-                                <td>Datum: </td>
-                                <td><input type="date" id="givenDate" name="datum"></input></td>
-                            </tr>
-                            <tr>
-                                <td>Abfahrtszeit: </td>
-                                <td><input type="time" name="abfahrtszeit"></input></td>
-                            </tr>
-                            <tr>
-                                <td>Ankunftszeit: </td>
-                                <td><input type="time" name="ankunftszeit"></input></td>
-                            </tr>
-                            <tr>
-                                <td>Zeitraum: </td>
-                                <td>
-                                    <select id="selectFA" name="zeitraum">
-                                        <option>Bitte auswählen ...</option>
-                                        <option>vor 7.00 Uhr</option>
-                                        <option>zwischen 7.00 und 9.00 Uhr</option>
-                                        <option>zwischen 9.00 und 11.00 Uhr</option>
-                                        <option>zwischen 11.00 und 13.00 Uhr</option>
-                                        <option>zwischen 13.00 und 15.00 Uhr</option>
-                                        <option>zwischen 15.00 und 17.00 Uhr</option>
-                                        <option>zwischen 17.00 und 19.00 Uhr</option>
-                                        <option>zwischen 19.00 und 21.00 Uhr</option>
-                                        <option>nach 21.00 Uhr</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Freie Sitzplätze: </td>
-                                <td><input type="number" name="freieSitzplaetze" min="1" max="10"></input></td>
-                            </tr>
-                            <tr>
-                                <td>Preis: </td>
-                                <td><input type="text" name="preis"></input></td>
-                            </tr>
-                        </table>
-                        <input type="submit" name="submit" value="Fahrt anbieten">
-                    </form>
-                </section>
-                <br />
-            </div>
+        <div class="content">
+            <h2>Fahrt anbieten</h2>
+            <section>
+                <form onsubmit="return checkEntries()" id="form_fa" action="sendData.php" method="POST">
+                    <table>
+                        <tr>
+                            <td>Vorname: </td>
+                            <td><input type="text" name="vorname"></input> </td>
+                        </tr>
+                        <tr>
+                            <td>Name: </td>
+                            <td><input type="text" name="nachname"></input> </td>
+                        </tr>
+                        <tr>
+                            <td>Email: </td>
+                            <td><input type="email" name="email"></input>
+                        </tr>
+                        <tr>
+                            <td>Abfahrtsort: </td>
+                            <td><input type="text" name="abfahrtsort"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Ankunftsort: </td>
+                            <td><input type="text" name="ankunftsort"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Datum: </td>
+                            <td><input type="date" id="givenDate" name="datum"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Abfahrtszeit: </td>
+                            <td><input type="time" name="abfahrtszeit"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Ankunftszeit: </td>
+                            <td><input type="time" name="ankunftszeit"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Zeitraum: </td>
+                            <td>
+                                <select id="selectFA" name="zeitraum">
+                                    <option>Bitte auswählen ...</option>
+                                    <option>vor 7.00 Uhr</option>
+                                    <option>zwischen 7.00 und 9.00 Uhr</option>
+                                    <option>zwischen 9.00 und 11.00 Uhr</option>
+                                    <option>zwischen 11.00 und 13.00 Uhr</option>
+                                    <option>zwischen 13.00 und 15.00 Uhr</option>
+                                    <option>zwischen 15.00 und 17.00 Uhr</option>
+                                    <option>zwischen 17.00 und 19.00 Uhr</option>
+                                    <option>zwischen 19.00 und 21.00 Uhr</option>
+                                    <option>nach 21.00 Uhr</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Freie Sitzplätze: </td>
+                            <td><input type="number" name="freieSitzplaetze" min="1" max="10"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Preis: </td>
+                            <td><input type="text" name="preis"></input></td>
+                        </tr>
+                    </table>
+                    <input type="submit" name="submit" value="Fahrt anbieten">
+                </form>
+            </section>
+            <br />
         </div>
     </div>
+
 
     <script type="text/javascript" src="functions.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
