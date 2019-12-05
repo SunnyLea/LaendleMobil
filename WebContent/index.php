@@ -6,7 +6,7 @@
         $datum = $_GET['datum'];
         $zeitraum = $_GET['zeitraum'];
 
-    echo "<h1> Datenbank auslesen um ". date("H:i:s") . "</h1>";
+    // echo "<h1> Datenbank auslesen um ". date("H:i:s") . "</h1>";
 
     $sql = "SELECT DISTINCT * FROM drives WHERE abfahrtsort='$abfahrtsort'
     AND ankunftsort='$ankunftsort' AND datum='$datum' AND 
@@ -53,6 +53,30 @@
         button {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 120%;
+        }
+        dialog {
+        display: none;
+        position: relative;
+        z-index:1002;
+
+        }
+
+        dialog[open="open"] {
+         display: block;
+        }
+
+        @media (min-width: 30em) { 
+         dialog {
+         width: 20em; 
+        }
+        }
+        dialog::backdrop, #backdrop {      
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);    
         }
     </style>
 </head>
@@ -164,11 +188,9 @@
                                        </td>
                                        <td><?php echo $inhalt->abfahrtsort; ?></td>
                                        <td><?php echo $inhalt->ankunftsort; ?></td>
-                                       <td><?php echo $inhalt->freie_sitzplaetze; ?></td>
+                                       <td><?php echo $inhalt->freieSitzplaetze; ?></td>
                                        <td><?php echo $inhalt->preis; ?></td>
                                        <td>
-                                          <!-- <button>Zur Buchung</button>-->
-                                          <input type="submit" value="Zur Buchung">
                                        </td>
                                    </tr>
                                </form>
@@ -180,14 +202,15 @@
                                </table>
            
                </div>
-           
                            <br />
-           
-                               
                        </div>
-
+                       
                 </section>
-
+                <button id="open-dialog">Zeige die Dialog-Box</button>
+                                <dialog role="dialog" aria-labelledby="dialog-heading">
+                                <button id="close-dialog">Schließen</button>	
+                                <h2 id="dialog-heading">Info</h2>
+                                </dialog>
                 <br />
 
             </div>

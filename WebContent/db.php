@@ -6,7 +6,7 @@
 <body>
     <?php
         // Errors unterdrücken
-        error_reporting(E_ALL);
+        error_reporting(0);
 
         // Zeitzone festlegen
         date_default_timezone_set('Europe/Berlin');

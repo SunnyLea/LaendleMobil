@@ -2,7 +2,7 @@
 
 if(!empty($_POST["submit"])){
 $vorname = $_POST["vorname"];
-$name = $_POST["name"];
+$nachname = $_POST["nachname"];
 $email = $_POST["email"];
 $abfahrtsort = $_POST["abfahrtsort"];
 $ankunftsort = $_POST["ankunftsort"];
@@ -21,8 +21,8 @@ echo $preis;
 //echo $preisformatted;
 
 $con = mysqli_connect("localhost", "root", "", "Laendlemobil") or die("Could not connect to server.");
-$eintrag = "INSERT INTO drives (vorname, name, email, abfahrtsort, ankunftsort, datum, abfahrtszeit, ankunftszeit, zeitraum, freieSitzplaetze, preis)
-VALUES ('$vorname', '$name', '$email', '$abfahrtsort', '$ankunftsort', '$datum', '$abfahrtszeit', '$ankunftszeit', '$zeitraum', '$freieSitzplaetze', '$preis')";
+$eintrag = "INSERT INTO drives (vorname, nachname, email, abfahrtsort, ankunftsort, datum, abfahrtszeit, ankunftszeit, zeitraum, freieSitzplaetze, preis)
+VALUES ('$vorname', '$nachname', '$email', '$abfahrtsort', '$ankunftsort', '$datum', '$abfahrtszeit', '$ankunftszeit', '$zeitraum', '$freieSitzplaetze', '$preis')";
 $eintragen = mysqli_query($con, $eintrag);
 
 if($eintragen == true){
