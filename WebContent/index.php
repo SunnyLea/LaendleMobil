@@ -152,8 +152,9 @@
                 <section>
                         <div data-role="page" id="drives" data-theme="b">
                                 <div data-role="main" class="ui-content">
-                              <h1>Gefundene Fahrten</h1>
-                           <form action="buchung.php" method="get">
+                              <h1 id="h1gefundeneFahrten">Gefundene Fahrten</h1>
+                           <form method="get">
+                     <!--      <form action="buchung.php" method="get"> -->
                            <table id="gefundeneFahrten" data-role="table" class="ui-responsive" data-mode="columntoggle" data-column-btn-text="Spalten" >
                                <thead>
                                    <tr>
@@ -205,18 +206,121 @@
                        </div>
                        
                 </section>
-                <button id="open-dialog">Zeige die Dialog-Box</button>
-                                <dialog role="dialog" aria-labelledby="dialog-heading">
-                                <button id="close-dialog">Schließen</button>	
-                                <h2 id="dialog-heading">Info</h2>
-                                </dialog>
+                <button type="button" id="open-dialog">Fahrt buchen</button>
+                <dialog role="dialog" aria-labelledby="dialog-heading">	
+                    <h2 id="dialog-heading">Buchung</h2>
+                    <form action="sendBuchung.php" method="POST">
+                    <table>
+                        <tr>
+                            <td>Fahrt-ID: </td>
+                            <td><input id="fahrt_id" type="text" name="fahrt_id"></input></td>
+                        </tr>
+                        <tr>
+                            <td>E-Mail: </td>
+                            <td><input id="email_buchung" type="text" name="email_buchung"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Name: </td>
+                            <td><input id="name_buchung" type="text" name="name_buchung"></input></td>
+                        </tr>
+                    </table>
+                    <br />
+                   <!-- <input type="submit" name="submit" value="Buchen"  id="close-dialog"> -->
+                   <button oncklick="postBuchung()" id="close-dialog">Buchen</button>
+                    </form>  
+                 </dialog>
                 <br />
 
             </div>
         </div>
 
     </div>
+    <script type="text/javascript">
+    // start();
+    // function start(){
+    // let foundDrive = document.getElementById("gefundeneFahrten");
+    // foundDrive.style.display='none'; 
+    // let h1foundDrive = document.getElementById("h1gefundeneFahrten");
+    // h1foundDrive.style.display='none'; 
+    // }
 
+    // function showTable() {
+    // let foundDrive = document.getElementById("gefundeneFahrten");
+    // foundDrive.style.display='block'; 
+    // let h1foundDrive = document.getElementById("h1gefundeneFahrten");
+    // foundDrive.style.display='block'; 
+    // }
+
+    function checkEntriesStart(){
+    let inputs = document.getElementsByTagName('input');
+    let noInput = false;
+
+    for(let i = 0; i < inputs.length; i++){
+       if(inputs[i].value == ""){
+           noInput = true;
+       }
+   }
+   let select = document.getElementById('seekedTime');
+   if(select.value == "Bitte auswählen ..."){
+       noInput = true;
+   }
+    if(!noInput){
+       showTable();
+    }
+    if(noInput){
+        alert("Bitte Daten eingeben");
+   }
+}
+// function postBuchung(){
+
+//     let fahrt_id = $("#fahrt_id");
+//     let email_buchung = $("#email_buchung");
+//     let name_buchung = $("#name_buchung");
+
+//     $.ajax({
+
+//         url: 'sendBuchung',
+//         method: 'POST',
+//         dataType: 'json',
+//         data:{
+            
+//             fahrt_id: fahrt_id.val(),
+//             email_buchung: email_buchung.val(),
+//             name_buchung: name_buchung.val()
+//         }, success: function {
+//             alert("Buchung erfolgreich!");
+//         }
+//     });
+// }
+document.querySelector('#open-dialog').addEventListener('click', toggleDialog); 
+  function toggleDialog(){ 
+      let dialog = document.querySelector('dialog'),
+          closebutton = document.getElementById('close-dialog'),
+          pagebackground = document.querySelector('body');
+              
+      if (!dialog.hasAttribute('open')) {
+          
+          // show the dialog 
+          dialog.setAttribute('open','open');
+          // after displaying the dialog, focus the closebutton inside it
+          closebutton.focus();
+          closebutton.addEventListener('click', toggleDialog);
+          var div = document.createElement('div');
+          div.id = 'backdrop';
+          document.body.appendChild(div);
+      }
+      else {		
+          alert("Fahrt gebucht!");
+          dialog.removeAttribute('open');  
+          var div = document.querySelector('#backdrop');
+          div.parentNode.removeChild(div);
+          lastFocus.focus();
+        
+      }
+  //   src="https://cdn.jsdelivr.net/npm/sweetalert2@9"
+  }
+  
+    </script>
     <script type="text/javascript" src="functions.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"

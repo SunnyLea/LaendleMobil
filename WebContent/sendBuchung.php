@@ -1,14 +1,16 @@
 <?php
 
 // if(!empty($_POST["submit"])){
+
+
 $fahrt_id = $_POST["fahrt_id"];
 $name = $_POST["name_buchung"];
 $email = $_POST["email_buchung"];
 
-echo $fahrt_id;
-echo $name;
-echo $email;
-
+// echo $fahrt_id;
+// echo $name;
+// echo $email;
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 $con = mysqli_connect("localhost", "root", "", "Laendlemobil") or die("Could not connect to server.");
 $eintrag = "INSERT INTO buchungen (fahrtID, name, email)
 VALUES ('$fahrt_id', '$name', '$email')";
@@ -21,5 +23,5 @@ if($eintragen == true){
     echo "Error";
 }
 
-//}
+}
 ?>
