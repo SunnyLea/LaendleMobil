@@ -209,15 +209,15 @@
                 <button type="button" id="open-dialog">Fahrt buchen</button>
                 <dialog role="dialog" aria-labelledby="dialog-heading">	
                     <h2 id="dialog-heading">Buchung</h2>
-                    <form action="sendBuchung.php" method="POST">
+                    <form  method="POST">
                     <table>
                         <tr>
                             <td>Fahrt-ID: </td>
-                            <td><input id="fahrt_id" type="text" name="fahrt_id"></input></td>
+                            <td><input id="fahrt_id" type="number" name="fahrt_id"></input></td>
                         </tr>
                         <tr>
                             <td>E-Mail: </td>
-                            <td><input id="email_buchung" type="text" name="email_buchung"></input></td>
+                            <td><input id="email_buchung" type="email" name="email_buchung"></input></td>
                         </tr>
                         <tr>
                             <td>Name: </td>
@@ -226,7 +226,7 @@
                     </table>
                     <br />
                    <!-- <input type="submit" name="submit" value="Buchen"  id="close-dialog"> -->
-                   <button oncklick="postBuchung()" id="close-dialog">Buchen</button>
+                   <input type="button" onclick="postBuchung()" id="close-dialog" Value="Buchen" ></input>
                     </form>  
                  </dialog>
                 <br />
@@ -235,7 +235,28 @@
         </div>
 
     </div>
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="functions.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+
+
+
+                        
     <script type="text/javascript">
+
     // start();
     // function start(){
     // let foundDrive = document.getElementById("gefundeneFahrten");
@@ -271,27 +292,55 @@
         alert("Bitte Daten eingeben");
    }
 }
-// function postBuchung(){
 
-//     let fahrt_id = $("#fahrt_id");
-//     let email_buchung = $("#email_buchung");
-//     let name_buchung = $("#name_buchung");
+function postBuchung(){
 
-//     $.ajax({
+    var fahrt_id = $("#fahrt_id");
+    var email_buchung = $("#email_buchung");
+    var name_buchung = $("#name_buchung");
 
-//         url: 'sendBuchung',
-//         method: 'POST',
-//         dataType: 'json',
-//         data:{
-            
-//             fahrt_id: fahrt_id.val(),
-//             email_buchung: email_buchung.val(),
-//             name_buchung: name_buchung.val()
-//         }, success: function {
-//             alert("Buchung erfolgreich!");
-//         }
-//     });
-// }
+    if (isNotEmptyLog(fahrt_id) && isNotEmptyLog(email_buchung) && isNotEmptyLog(name_buchung)) {
+
+        $.ajax({
+
+            url: 'sendBuchung.php',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                
+                fahrt_id: fahrt_id.val(),
+                email_buchung: email_buchung.val(),
+                name_buchung: name_buchung.val()
+
+            }, success: function (response) {
+
+                if (response.status == "success")
+                alert('Buchung erfolgreich!')
+                window.location.href = "index.php";
+
+                if (response.status == "failure")
+                alert('Etwas lief schief lol');
+            }
+        });
+    }
+}
+
+
+function isNotEmptyLog(caller) {
+
+    if (caller.val() == "") {
+        alert("Bitte Daten eingeben");
+        caller.css('border', '2px solid red');
+
+        return false;
+    } else
+        caller.css('border', '');
+
+    return true;
+} 
+ 
+
+
 document.querySelector('#open-dialog').addEventListener('click', toggleDialog); 
   function toggleDialog(){ 
       let dialog = document.querySelector('dialog'),
@@ -304,7 +353,7 @@ document.querySelector('#open-dialog').addEventListener('click', toggleDialog);
           dialog.setAttribute('open','open');
           // after displaying the dialog, focus the closebutton inside it
           closebutton.focus();
-          closebutton.addEventListener('click', toggleDialog);
+        //   closebutton.addEventListener('click', toggleDialog);
           var div = document.createElement('div');
           div.id = 'backdrop';
           document.body.appendChild(div);
@@ -319,21 +368,16 @@ document.querySelector('#open-dialog').addEventListener('click', toggleDialog);
       }
   //   src="https://cdn.jsdelivr.net/npm/sweetalert2@9"
   }
+
+
+
   
     </script>
-    <script type="text/javascript" src="functions.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+    
 
 
 
-</body>
+    </body>
+
 
 </html>
