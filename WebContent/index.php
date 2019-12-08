@@ -10,7 +10,7 @@
 
     $sql = "SELECT DISTINCT * FROM drives WHERE abfahrtsort='$abfahrtsort'
     AND ankunftsort='$ankunftsort' AND datum='$datum' AND 
-    zeitraum='$zeitraum'";
+    zeitraum='$zeitraum' AND freieSitzplaetze > 0";
 
     if ($erg = $db->query($sql)) {
         while ($datensatz = $erg->fetch_object()) {
@@ -209,6 +209,7 @@
                 <button type="button" id="open-dialog">Fahrt buchen</button>
                 <dialog role="dialog" aria-labelledby="dialog-heading">	
                     <h2 id="dialog-heading">Buchung</h2>
+                    <button id="close-dialog">Schließen</button>
                     <form  method="POST">
                     <table>
                         <tr>
@@ -273,13 +274,20 @@
     // }
 
     function checkEntriesStart(){
-    let inputs = document.getElementsByTagName('input');
+    // let inputs = document.getElementsByTagName('input');
     let noInput = false;
 
-    for(let i = 0; i < inputs.length; i++){
-       if(inputs[i].value == ""){
-           noInput = true;
-       }
+    let seekedStart = $("#seekedStart");
+    let seekedDestination = $("#seekedDestination");
+    let seekedDate = $("#seekedDate");
+
+//     for(let i = 0; i < inputs.length; i++){
+//        if(inputs[i].value == ""){
+//            noInput = true;
+//        }
+//    }
+   if(seekedStart.value == "" && seekedDestination.value == "" && seekedDate == ""){
+       noInput = true;
    }
    let select = document.getElementById('seekedTime');
    if(select.value == "Bitte auswählen ..."){
@@ -315,11 +323,17 @@ function postBuchung(){
             }, success: function (response) {
 
                 if (response.status == "success")
-                alert('Buchung erfolgreich!')
+                alert('Buchung erfolgreich!');
                 window.location.href = "index.php";
 
                 if (response.status == "failure")
-                alert('Etwas lief schief lol');
+                alert('ERROR');
+
+                if (response.status == "booked_out")
+                alert('Fahrt bereits ausgebucht!');
+
+                if (response.status == "invalidID")
+                alert('Ungültige ID!');
             }
         });
     }
@@ -353,13 +367,12 @@ document.querySelector('#open-dialog').addEventListener('click', toggleDialog);
           dialog.setAttribute('open','open');
           // after displaying the dialog, focus the closebutton inside it
           closebutton.focus();
-        //   closebutton.addEventListener('click', toggleDialog);
+          closebutton.addEventListener('click', toggleDialog);
           var div = document.createElement('div');
           div.id = 'backdrop';
           document.body.appendChild(div);
       }
       else {		
-          alert("Fahrt gebucht!");
           dialog.removeAttribute('open');  
           var div = document.querySelector('#backdrop');
           div.parentNode.removeChild(div);
