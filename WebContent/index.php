@@ -158,6 +158,7 @@
                            <table id="gefundeneFahrten" data-role="table" class="ui-responsive" data-mode="columntoggle" data-column-btn-text="Spalten" >
                                <thead>
                                    <tr>
+                                       <th>Fahrt-ID</th>
                                        <th>Datum</th>
                                        <th>Uhrzeit</th>
                                        <th>Anbieter</th>
@@ -174,6 +175,7 @@
                                  //  print_r($daten);
                                ?>
                                    <tr>
+                                       <td><?php echo $inhalt->fahrt_id; ?></td>
                                        <td>
                                            <?php 
                                            // echo $inhalt->datum; 
