@@ -216,7 +216,7 @@
                     <table>
                         <tr>
                             <td>Fahrt-ID: </td>
-                            <td><input id="fahrt_id" type="number" name="fahrt_id"></input></td>
+                            <td><input id="fahrt_id" type="number" min="1" name="fahrt_id"></input></td>
                         </tr>
                         <tr>
                             <td>E-Mail: </td>
