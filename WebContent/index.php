@@ -143,7 +143,7 @@
                         </tr>
                     </table>
                     <br />
-                    <input type="submit" value="Fahrt suchen" onclick="checkEntriesStart()" onclick="showTable()">
+                    <input type="submit" value="Fahrt suchen" onclick="checkEntriesStart()" onclick="loadTable()">
                     <!--<button onclick="checkEntriesStart()" onclick="showTable()">Fahrt suchen</button>-->
                     </form>
                 </section>
@@ -209,7 +209,7 @@
                        </div>
                        
                 </section>
-                <button type="button" id="openDialog">Fahrt buchen</button>
+                <button type="button" id="open-dialog">Fahrt buchen</button>
                 <dialog role="dialog" aria-labelledby="dialog-heading">	
                     <h2 id="dialog-heading">Buchung</h2>
                     <button id="close-dialog">Schließen</button>
@@ -261,14 +261,42 @@
                         
     <script type="text/javascript">
 
-     start();
+    function loadTable() {
+    var seekedStart = $("#seekedStart");
+    var seekedDestination = $("#seekedDestination");
+    var seekedDate = $("#seekedDate");
+    var seekedTime = $("#seekedTime");
+
+    if (isNotEmptyLog(seekedStart) && isNotEmptyLog(seekedDestination) && isNotEmptyLog(seekedDate) && isNotEmptyLog(seekedTime)) {
+        $.ajax({
+            url: "getData.php",
+            method: 'GET',
+            data: {
+                seekedStart: seekedStart.val(),
+                seekedDestination: seekedDestination.val(),
+                seekedDate: seekedDate.val(),
+                seekedTime: seekedTime.val()
+            },
+            success: function(response){
+                // showTable();
+                let foundDrive = document.getElementById("gefundeneFahrten");
+                foundDrive.style.display='block'; 
+                let h1foundDrive = document.getElementById("h1gefundeneFahrten");
+                foundDrive.style.display='block'; 
+            }
+        });
+    }
+    }
+
+    // start();
+
      function start(){
      let foundDrive = document.getElementById("gefundeneFahrten");
      foundDrive.style.display='none'; 
      let h1foundDrive = document.getElementById("h1gefundeneFahrten");
      h1foundDrive.style.display='none'; 
-     let openDialog = document.getElementById("openDialog");
-     openDialog.style.display='none';
+     //let open-dialog = document.getElementById("open-dialog");
+     //open-dialog.style.display='none';
      }
 
      function showTable() {
@@ -276,8 +304,8 @@
      foundDrive.style.display='block'; 
      let h1foundDrive = document.getElementById("h1gefundeneFahrten");
      foundDrive.style.display='block'; 
-     let openDialog = document.getElementById("openDialog");
-     openDialog.style.display='block';
+     //let open-dialog = document.getElementById("open-dialog");
+     //open-dialog.style.display='block';
      }
 
     function checkEntriesStart(){
