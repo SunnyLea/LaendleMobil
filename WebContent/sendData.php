@@ -12,13 +12,6 @@ $ankunftszeit = $_POST["ankunftszeit"];
 $zeitraum = $_POST["zeitraum"];
 $freieSitzplaetze = $_POST["freieSitzplaetze"];
 $preis = $_POST["preis"];
-//$preis = $preis * 1;
-//$preisformatted = number_format($preis, 2, '.', ' ');
-
-// number_format($number, 2, '.', '');s
-
-echo $preis;
-//echo $preisformatted;
 
 $con = mysqli_connect("localhost", "root", "", "Laendlemobil") or die("Could not connect to server.");
 $eintrag = "INSERT INTO drives (vorname, nachname, email, abfahrtsort, ankunftsort, datum, abfahrtszeit, ankunftszeit, zeitraum, freieSitzplaetze, preis)
@@ -26,11 +19,7 @@ VALUES ('$vorname', '$nachname', '$email', '$abfahrtsort', '$ankunftsort', '$dat
 $eintragen = mysqli_query($con, $eintrag);
 
 if($eintragen == true){
-    echo "Entry successful";
     header ( 'Location: Fahrt_anbieten.html' );
-} else{
-    echo "Error";
-}
-
+} 
 }
 ?>

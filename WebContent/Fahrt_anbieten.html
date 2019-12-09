@@ -30,46 +30,7 @@
             font-size: 120%;
         }
     </style>
-    <script>
-        function checkEntries() {
-
-            let inputsFA = document.getElementsByTagName('input');
-            let noInputFA = false;
-            let dateInFuture = false;
-
-            for (let j = 0; j < inputsFA.length; j++) {
-                if (inputsFA[j].value == "") {
-                    noInputFA = true;
-                }
-            }
-            let selectFA = document.getElementById('selectFA');
-            if (selectFA.value == "Bitte auswählen ...") {
-                noInputFA = true;
-            }
-            if (noInputFA) {
-                alert("Bitte Daten eingeben");
-                return false;
-            }
-
-
-            let today = new Date();
-            let todayRounded = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-            let givenDate = document.getElementById('givenDate');
-            let givenDateString = givenDate.value;
-            let givenDateArray = givenDateString.split('-');
-            let givenDateFinal = new Date(givenDateArray[0], givenDateArray[1] - 1, givenDateArray[2]);
-
-            if (givenDateFinal.getTime() < todayRounded.getTime()) {
-                dateInFuture = true;
-                alert("Bitte Datum in der Zukunft angeben");
-                return false;
-            }
-
-            if (!noInputFA && !dateInFuture) {
-                alert("Daten erfolgreich gespeichert")
-            }
-        }
-    </script>
+    
 </head>
 
 <body>
@@ -164,18 +125,56 @@
         </div>
     </div>
 
-
-    <!-- <script type="text/javascript" src="functions.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="functions.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            function checkEntries() {
+    
+                let inputsFA = document.getElementsByTagName('input');
+                let noInputFA = false;
+                let dateInFuture = false;
+    
+                for (let j = 0; j < inputsFA.length; j++) {
+                    if (inputsFA[j].value == "") {
+                        noInputFA = true;
+                    }
+                }
+                let selectFA = document.getElementById('selectFA');
+                if (selectFA.value == "Bitte auswählen ...") {
+                    noInputFA = true;
+                }
+                if (noInputFA) {
+                    alert("Bitte Daten eingeben");
+                    return false;
+                }
+    
+                let today = new Date();
+                let givenDate = document.getElementById('givenDate');
+                let givenDateString = givenDate.value;
+                let givenDateArray = givenDateString.split('-');
+                let givenDateFinal = new Date(givenDateArray[0], givenDateArray[1] - 1, givenDateArray[2]);
+    
+                if (givenDateFinal.getTime() < today.getTime()) {
+                    dateInFuture = true;
+                    alert("Bitte Datum in der Zukunft angeben");
+                    return false;
+                }
+    
+                if (!noInputFA && !dateInFuture) {
+                    alert("Daten erfolgreich gespeichert")
+                }
+            }
+        </script>
 
 </body>
 

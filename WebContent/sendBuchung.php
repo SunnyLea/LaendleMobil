@@ -11,18 +11,15 @@ $con = mysqli_connect("localhost", "root", "", "Laendlemobil") or die("Could not
 
 $abfrageID = "SELECT * FROM drives where fahrt_id = '".$fahrt_id."';";
 $abfrageFreieSitzplaetze = "SELECT freieSitzplaetze FROM drives where fahrt_id = '".$fahrt_id."';";
-
 $eintrag = "INSERT INTO BUCHUNGEN (fahrt_id, name, email) VALUES ('".$fahrt_id."','".$name."','".$email."');";
 $ergebnis = mysqli_query($con, $abfrageID);
 $count = mysqli_num_rows($ergebnis); 
-
 
 if ($count == 1) {
 
   $result = mysqli_query($con, $abfrageFreieSitzplaetze);
   $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
   $anzahlSitzplaetze = $row['freieSitzplaetze'];
-//   $anzahlSitzplaetze = $anzahlSitzplaetze - 1;
 
   if ($anzahlSitzplaetze >= 1){
      $anzahlSitzplaetze = $anzahlSitzplaetze - 1;
@@ -36,9 +33,9 @@ if ($count == 1) {
     $status = "booked_out";
     $response = "Fahrt ausgebucht!";
   }
-}else {
+} else {
     $status = "invalidID";
-$response = "Ungültige ID!";
+    $response = "Ungültige ID!";
 }
 
 exit(json_encode(array("status"=>$status, "response" =>$response)));
