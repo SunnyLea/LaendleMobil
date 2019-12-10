@@ -109,7 +109,8 @@
                 <br />
                 <h2>Fahrt suchen</h2>
                 <section>
-                    <form action="index.php" method="get">
+                    <!--<form action="index.php" method="get">-->
+                    <form method="get">
                     <table id="table">
                         <tr>
                             <td>Abfahrtsort: </td>
@@ -142,8 +143,8 @@
                         </tr>
                     </table>
                     <br />
-                    <input type="submit" value="Fahrt suchen" onclick="checkEntriesStart()">
-                    <!--<button onclick="checkEntriesStart()">Fahrt suchen</button>-->
+                    <input type="submit" value="Fahrt suchen" onclick="checkEntriesStart()" onclick="loadTable()">
+                    <!--<button onclick="checkEntriesStart()" onclick="showTable()">Fahrt suchen</button>-->
                     </form>
                 </section>
 
@@ -252,20 +253,52 @@
                         
     <script type="text/javascript">
 
-    // start();
-    // function start(){
-    // let foundDrive = document.getElementById("gefundeneFahrten");
-    // foundDrive.style.display='none'; 
-    // let h1foundDrive = document.getElementById("h1gefundeneFahrten");
-    // h1foundDrive.style.display='none'; 
-    // }
+    function loadTable() {
+    var seekedStart = $("#seekedStart");
+    var seekedDestination = $("#seekedDestination");
+    var seekedDate = $("#seekedDate");
+    var seekedTime = $("#seekedTime");
 
-    // function showTable() {
-    // let foundDrive = document.getElementById("gefundeneFahrten");
-    // foundDrive.style.display='block'; 
-    // let h1foundDrive = document.getElementById("h1gefundeneFahrten");
-    // foundDrive.style.display='block'; 
-    // }
+    if (isNotEmptyLog(seekedStart) && isNotEmptyLog(seekedDestination) && isNotEmptyLog(seekedDate) && isNotEmptyLog(seekedTime)) {
+        $.ajax({
+            url: "getData.php",
+            method: 'GET',
+            data: {
+                seekedStart: seekedStart.val(),
+                seekedDestination: seekedDestination.val(),
+                seekedDate: seekedDate.val(),
+                seekedTime: seekedTime.val()
+            },
+            success: function(response){
+                // showTable();
+                let foundDrive = document.getElementById("gefundeneFahrten");
+                foundDrive.style.display='block'; 
+                let h1foundDrive = document.getElementById("h1gefundeneFahrten");
+                foundDrive.style.display='block'; 
+            }
+        });
+    }
+    }
+
+    // start();
+
+     function start(){
+     let foundDrive = document.getElementById("gefundeneFahrten");
+     foundDrive.style.display='none'; 
+     let h1foundDrive = document.getElementById("h1gefundeneFahrten");
+     h1foundDrive.style.display='none'; 
+     //let open-dialog = document.getElementById("open-dialog");
+     //open-dialog.style.display='none';
+     }
+
+     function showTable() {
+     let foundDrive = document.getElementById("gefundeneFahrten");
+     foundDrive.style.display='block'; 
+     let h1foundDrive = document.getElementById("h1gefundeneFahrten");
+     foundDrive.style.display='block'; 
+     //let open-dialog = document.getElementById("open-dialog");
+     //open-dialog.style.display='block';
+     }
 
     function checkEntriesStart(){
     // let inputs = document.getElementsByTagName('input');
