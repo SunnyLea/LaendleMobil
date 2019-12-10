@@ -1,7 +1,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto 36% auto auto auto;
-    grid-template-rows: minmax(1px, 100px) auto minmax(1px, 30px);
+    grid-template-rows: minmax(1px, 80px) auto minmax(1px, 50px);
     
 }
 
@@ -20,7 +20,7 @@
     grid-column-start: 3;
     grid-column-end: 6;
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 4;
     background-color: rgba(0, 0, 0, 0.199);
 }
 
