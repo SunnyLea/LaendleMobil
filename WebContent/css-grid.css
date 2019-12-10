@@ -1,7 +1,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto 36% auto auto auto;
-    grid-template-rows: minmax(1px, 120px) auto minmax(1px, 30px);
+    grid-template-rows: minmax(1px, 100px) auto minmax(1px, 30px);
     
 }
 
@@ -16,34 +16,12 @@
     grid-row-end: 2;
 }
 
-.show2 {
-    grid-column-start: 3;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 3;
-    background-color: rgba(0, 0, 0, 0.199);
-}
-
 .show {
     grid-column-start: 3;
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 3;
     background-color: rgba(0, 0, 0, 0.199);
-}
-
-.grid42 {
-    grid-column-start: 4;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 2;
-}
-
-.grid33 {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 3;
-    grid-row-end: 3;
 }
 
 .headerBar{
