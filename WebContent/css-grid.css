@@ -1,7 +1,12 @@
 .grid-container {
     display: grid;
     grid-template-columns: auto auto 36% auto auto;
-    grid-template-rows: 10% auto 10%;
+    grid-template-rows: minmax(1px, 120px) auto minmax(1px, 30px);
+    
+}
+
+.hervorhebung{
+    color: orange;
     
 }
 
@@ -13,11 +18,26 @@
     background-color: rgba(0, 0, 0, 0.199);
 }
 
+.grid42 {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.grid33 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
 .headerBar{
     grid-column-start: 1;
     grid-column-end: 5;
 
 }
+
 
 .content{
     grid-column-start: 3;
