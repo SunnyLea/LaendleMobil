@@ -116,7 +116,7 @@
                 <section>
                     <!--<form action="index.php" method="get">-->
                     <form method="get">
-                    <table id="table">
+                    <table id="table1">
                         <tr>
                             <td style="font-size: 130%">Abfahrtsort: </td>
                             <td><input id="seekedStart" type="text" name="abfahrtsort" style="font-size: 130%;"></input></td>
@@ -425,11 +425,6 @@ document.querySelector('#open-dialog').addEventListener('click', toggleDialog);
 
   
     </script>
-    
-
-    <footer id="footer2">
-        TEST
-    </footer>
 
     </body>
 
