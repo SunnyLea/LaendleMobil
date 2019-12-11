@@ -68,11 +68,11 @@ CREATE TABLE `drives` (
 --
 
 INSERT INTO `drives` (`fahrt_id`, `vorname`, `nachname`, `email`, `abfahrtsort`, `ankunftsort`, `datum`, `abfahrtszeit`, `ankunftszeit`, `zeitraum`, `freieSitzplaetze`, `preis`) VALUES
-(1, 'Max', 'Mustermann', 'maxmustermann@beispiel.de', 'Sigmaringendorf', 'Mengen', '2019-12-15', '06:45:00', '07:05:00', 'vor 7.00 Uhr', 3, '2.50'),
-(2, 'Marius', 'Muster', 'muster@beispiel.de', 'Sigmaringendorf', 'Mengen', '2019-12-15', '06:40:00', '07:00:00', 'vor 7.00 Uhr', 1, '3.00'),
-(3, 'Mia', 'Musterle', 'm.musterle@beispiel.de', 'Scheer', 'Bingen', '2019-12-14', '15:00:00', '15:10:00', 'zwischen 15.00 und 17.00 Uhr', 1, '2.20'),
-(4, 'Marius', 'Muster', 'muster@beispiel.de', 'Mengen', 'Sigmaringendorf', '2019-12-15', '16:05:00', '16:25:00', 'zwischen 15.00 und 17.00 Uhr', 2, '3.00'),
-(5, 'Max', 'Mustermann', 'maxmustermann@beispiel.de', 'Mengen', 'Bad Saulgau', '2019-12-15', '17:15:00', '17:40:00', 'zwischen 17.00 und 19.00 Uhr', 1, '4.00');
+(1, 'Max', 'Mustermann', 'maxmustermann@beispiel.de', 'Sigmaringendorf', 'Mengen', '2019-12-15', '06:45:00', '07:05:00', 'vor 7 Uhr', 3, '2.50'),
+(2, 'Marius', 'Muster', 'muster@beispiel.de', 'Sigmaringendorf', 'Mengen', '2019-12-15', '06:40:00', '07:00:00', 'vor 7 Uhr', 1, '3.00'),
+(3, 'Mia', 'Musterle', 'm.musterle@beispiel.de', 'Scheer', 'Bingen', '2019-12-14', '15:00:00', '15:10:00', '15 bis 17 Uhr', 1, '2.20'),
+(4, 'Marius', 'Muster', 'muster@beispiel.de', 'Mengen', 'Sigmaringendorf', '2019-12-15', '16:05:00', '16:25:00', '15 bis 17 Uhr', 2, '3.00'),
+(5, 'Max', 'Mustermann', 'maxmustermann@beispiel.de', 'Mengen', 'Bad Saulgau', '2019-12-15', '17:15:00', '17:40:00', '17 bis 19 Uhr', 1, '4.00');
 
 --
 -- Indizes der exportierten Tabellen
