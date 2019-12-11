@@ -107,43 +107,50 @@
 
             <div class="content">
                 <br />
-                <h2>Fahrt suchen</h2>
+                <div class="hervorhebung">
+                <p>
+                    <h1>Fahrt suchen</h1>
+                </p>
+            </div>
+                <br />
                 <section>
                     <!--<form action="index.php" method="get">-->
                     <form method="get">
                     <table id="table">
                         <tr>
-                            <td>Abfahrtsort: </td>
-                            <td><input id="seekedStart" type="text" name="abfahrtsort"></input></td>
+                            <td style="font-size: 130%">Abfahrtsort: </td>
+                            <td><input id="seekedStart" type="text" name="abfahrtsort" style="font-size: 130%;"></input></td>
                         </tr>
                         <tr>
-                            <td>Ankunftsort: </td>
-                            <td><input id="seekedDestination" type="text" name="ankunftsort"></input></td>
+                            <td style="font-size: 130%">Ankunftsort: </td>
+                            <td><input id="seekedDestination" type="text" name="ankunftsort" style="font-size: 130%;"></input></td>
                         </tr>
                         <tr>
-                            <td>Datum: </td>
-                            <td><input id="seekedDate" type="date" name="datum"></input></td>
+                            <td style="font-size: 130%">Datum: </td>
+                            <td><input id="seekedDate" type="date" name="datum" style="font-size: 130%;"></input></td>
                         </tr>
                         <tr>
-                            <td>Zeitraum: </td>
+                            <td style="font-size: 130%">Zeitraum: </td>
                             <td>
                                 <select id="seekedTime" name="zeitraum">
-                                    <option>Bitte auswählen ...</option>
-                                    <option>vor 7.00 Uhr</option>
-                                    <option>zwischen 7.00 und 9.00 Uhr</option>
-                                    <option>zwischen 9.00 und 11.00 Uhr</option>
-                                    <option>zwischen 11.00 und 13.00 Uhr</option>
-                                    <option>zwischen 13.00 und 15.00 Uhr</option>
-                                    <option>zwischen 15.00 und 17.00 Uhr</option>
-                                    <option>zwischen 17.00 und 19.00 Uhr</option>
-                                    <option>zwischen 19.00 und 21.00 Uhr</option>
-                                    <option>nach 21.00 Uhr</option>
+                                    <<option style="font-size: 95%;">Bitte auswählen ...</option>
+                                    <option style="font-size: 95%;">vor 7 Uhr</option>
+                                    <option style="font-size: 95%;">7 bis 9 Uhr</option>
+                                    <option style="font-size: 95%;">9 bis 11 Uhr</option>
+                                    <option style="font-size: 95%;">11 bis 13 Uhr</option>
+                                    <option style="font-size: 95%;">13 bis 15 Uhr</option>
+                                    <option style="font-size: 95%;">15 bis 17 Uhr</option>
+                                    <option style="font-size: 95%;">17 bis 19 Uhr</option>
+                                    <option style="font-size: 95%;">19 bis 21 Uhr</option>
+                                    <option style="font-size: 95%;">nach 21 Uhr</option>
                                 </select>
                             </td>
                         </tr>
                     </table>
                     <br />
-                    <input type="submit" value="Fahrt suchen" onclick="checkEntriesStart()" onclick="loadTable()">
+                    <input type="submit" value="Fahrt suchen" onclick="checkEntriesStart()" 
+                    onclick="loadTable()" style="font-size: 95%; border-color: orange;">
+                    <br /><br />
                     <!--<button onclick="checkEntriesStart()" onclick="showTable()">Fahrt suchen</button>-->
                     </form>
                 </section>
@@ -154,6 +161,7 @@
                         <div data-role="page" id="drives" data-theme="b">
                                 <div data-role="main" class="ui-content">
                               <h1 id="h1gefundeneFahrten">Gefundene Fahrten</h1>
+                              <br />
                            <form method="get">
                      <!--      <form action="buchung.php" method="get"> -->
                            <table id="gefundeneFahrten" data-role="table" class="ui-responsive" data-mode="columntoggle" data-column-btn-text="Spalten" >
@@ -209,27 +217,31 @@
                        </div>
                        
                 </section>
-                <button type="button" id="open-dialog">Fahrt buchen</button>
+                <button type="button" id="open-dialog"  style="font-size: 95%; border-color: orange;">Fahrt buchen</button>
+
+
                 <dialog role="dialog" aria-labelledby="dialog-heading">	
-                    <h2 id="dialog-heading">Buchung</h2>
-                    <button id="close-dialog">Schließen</button>
+                    <h1 id="dialog-heading">Buchung</h1>
+                    
                     <form  method="POST">
                     <table>
                         <tr>
                             <td>Fahrt-ID: </td>
-                            <td><input id="fahrt_id" type="number" min="1" name="fahrt_id"></input></td>
+                            <td><input id="fahrt_id" type="number" min="1" name="fahrt_id" style="font-size: 95%;"></input></td>
                         </tr>
                         <tr>
                             <td>E-Mail: </td>
-                            <td><input id="email_buchung" type="email" name="email_buchung"></input></td>
+                            <td><input id="email_buchung" type="email" name="email_buchung" style="font-size: 95%;"></input></td>
                         </tr>
                         <tr>
                             <td>Name: </td>
-                            <td><input id="name_buchung" type="text" name="name_buchung"></input></td>
+                            <td><input id="name_buchung" type="text" name="name_buchung" style="font-size: 95%;"></input></td>
                         </tr>
                     </table>
                     <br />
-                   <input type="button" onclick="postBuchung()" value="Buchen" ></input>
+                    <button id="close-dialog" style="font-size: 95%; border-color: orange;">Schließen</button>
+                   <input type="button" onclick="postBuchung()" value="Buchen" 
+                   style="font-size: 95%; border-color: orange;"></input>
                     </form>  
                  </dialog>
                 <br />
@@ -415,7 +427,9 @@ document.querySelector('#open-dialog').addEventListener('click', toggleDialog);
     </script>
     
 
-
+    <footer id="footer2">
+        TEST
+    </footer>
 
     </body>
 

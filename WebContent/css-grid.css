@@ -52,19 +52,6 @@ select {
     text-align: center;
 }
 
-/*.fullscreen{
-    /*background-image: url("../img/AutoStraße.png");
-    background-size: cover;
-    /*background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    /*align-items: center;
-}*/
-
 html, body{
     background-image: url("AutoStraße.png");
     background-size: cover;
@@ -74,6 +61,7 @@ html, body{
 nav {
     margin: 1%;
 }
+
 
 /*.gefundeneFahrten{
     /*margin-top: 1%;
