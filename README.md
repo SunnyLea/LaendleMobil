@@ -1,24 +1,14 @@
 # LaendleMobil
 
-Ziel:    Mobilität in ländlichen Regionen mit Hilfe einer benutzerfreundlichen Anwendung fördern (Umweltgedanke, Kostenersparnis)
-
-Grundfunktionalitäten:      Fahrten einstellen, nach ihnen suchen und buchen können!
-
-Zusatzfunktionen:
-
-  o Personen müssen Name und Mailadresse eingeben und werden per Mail benachrichtigt wenn man gebucht wurde oder gebucht hat
-  
-  o Mögliche Fahrten können eingegeben werden
-  
-  o Tägliche Fahrten wie der Weg zur Arbeit oder wöchentliche Fahrten wie der Weg zu Sport können eingestellt werden
-   
-
---------------------------------------------------------
 LändleMobil
+
+Objective
+
+To promote mobility in rural areas by means of a user-friendly application (environmental awareness, cost savings).
 
 Documentation
 
-This web-application is used to find and offer carpooling opportunities for short distances.
+This web-application is used to find, offer and book carpooling opportunities for short distances.
 
 
 Technologies
