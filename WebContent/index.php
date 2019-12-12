@@ -382,9 +382,10 @@ function postBuchung(){
 
             }, success: function (response) {
 
-                if (response.status == "success")
+                if (response.status == "success"){
                 alert('Buchung erfolgreich!');
                 window.location.href = "index.php";
+                }
 
                 if (response.status == "failure")
                 alert('ERROR');
