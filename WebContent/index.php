@@ -160,7 +160,7 @@
                     </table>
                     <br />
                     <input type="submit" value="Fahrt suchen" onclick="checkEntriesStart()" 
-                    onclick="loadTable()" style="font-size: 95%; border-color: orange;">
+                    onclick="loadTable()" style="font-size: 95%; border-color: orange; float: left;">
                     <br />
                     <br />
                 </form>
