@@ -22,6 +22,7 @@ This web-application is used to find and offer carpooling opportunities for shor
 
 
 Technologies
+
 This web-application uses the following technology stack:
 -	HTML, CSS, Javascript
 -	Frameworks (client-side): Bootstrap
@@ -31,6 +32,7 @@ This web-application uses the following technology stack:
 
 
 Preconditions and Installation
+
 The following preconditions are required to run this application:
 - MySQL server running on localhost port 3306 with username root and no password
 -	install XAMPP
