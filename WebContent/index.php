@@ -6,8 +6,6 @@
         $datum = $_GET['datum'];
         $zeitraum = $_GET['zeitraum'];
 
-    // echo "<h1> Datenbank auslesen um ". date("H:i:s") . "</h1>";
-
     $sql = "SELECT DISTINCT * FROM drives WHERE abfahrtsort='$abfahrtsort'
     AND ankunftsort='$ankunftsort' AND datum='$datum' AND 
     zeitraum='$zeitraum' AND freieSitzplaetze > 0";
@@ -17,10 +15,6 @@
                 $daten[] = $datensatz;
         }
     }
-    //echo '<pre>';
-    //    print_r($daten);
-    //   exit;
-
 ?>
 
 <!DOCTYPE html>
@@ -160,7 +154,7 @@
                     </table>
                     <br />
                     <input type="submit" value="Fahrt suchen" onclick="checkEntriesStart()" 
-                    onclick="loadTable()" style="font-size: 95%; border-color: orange; float: left;">
+                     style="font-size: 95%; border-color: orange; float: left;">
                     <br />
                     <br />
                 </form>
@@ -190,17 +184,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    
+                                    <?php           
                                     foreach ($daten as $inhalt) {
-                                        //  print_r($daten);
                                     ?>
                                     <tr>
                                         <td><?php echo $inhalt->fahrt_id; ?></td>
                                         <td>
                                             <?php 
-                                            // echo $inhalt->datum; 
-                                            //print_r($daten->datum);
                                             echo date("d.m.Y", strtotime($inhalt->datum));
                                             ?>
                                         </td>
@@ -220,7 +210,6 @@
                                 </form>
                                 <?php
                                 }
-                            
                                 ?>
                                 </tbody>
                             </table>
@@ -290,76 +279,83 @@
                         
     <script type="text/javascript">
 
-    function loadTable() {
-    var seekedStart = $("#seekedStart");
-    var seekedDestination = $("#seekedDestination");
-    var seekedDate = $("#seekedDate");
-    var seekedTime = $("#seekedTime");
+    // function loadTable() {
+    // var seekedStart = $("#seekedStart");
+    // var seekedDestination = $("#seekedDestination");
+    // var seekedDate = $("#seekedDate");
+    // var seekedTime = $("#seekedTime");
 
-    if (isNotEmptyLog(seekedStart) && isNotEmptyLog(seekedDestination) && isNotEmptyLog(seekedDate) && isNotEmptyLog(seekedTime)) {
-        $.ajax({
-            url: "getData.php",
-            method: 'GET',
-            data: {
-                seekedStart: seekedStart.val(),
-                seekedDestination: seekedDestination.val(),
-                seekedDate: seekedDate.val(),
-                seekedTime: seekedTime.val()
-            },
-            success: function(response){
-                // showTable();
-                let foundDrive = document.getElementById("gefundeneFahrten");
-                foundDrive.style.display='block'; 
-                let h1foundDrive = document.getElementById("h1gefundeneFahrten");
-                foundDrive.style.display='block'; 
-            }
-        });
-    }
-    }
+    // if (isNotEmptyLog(seekedStart) && isNotEmptyLog(seekedDestination) && isNotEmptyLog(seekedDate) && isNotEmptyLog(seekedTime)) {
+    //     $.ajax({
+    //         url: "getData.php",
+    //         method: 'GET',
+    //         data: {
+    //             seekedStart: seekedStart.val(),
+    //             seekedDestination: seekedDestination.val(),
+    //             seekedDate: seekedDate.val(),
+    //             seekedTime: seekedTime.val()
+    //         },
+    //         success: function(response){
+    //             // showTable();
+    //             let foundDrive = document.getElementById("gefundeneFahrten");
+    //             foundDrive.style.display='block'; 
+    //             let h1foundDrive = document.getElementById("h1gefundeneFahrten");
+    //             foundDrive.style.display='block'; 
+    //         }
+    //     });
+    // }
+    // }
 
     // start();
 
-     function start(){
-     let foundDrive = document.getElementById("gefundeneFahrten");
-     foundDrive.style.display='none'; 
-     let h1foundDrive = document.getElementById("h1gefundeneFahrten");
-     h1foundDrive.style.display='none'; 
-     //let open-dialog = document.getElementById("open-dialog");
-     //open-dialog.style.display='none';
-     }
+    //  function start(){
+    //  let foundDrive = document.getElementById("gefundeneFahrten");
+    //  foundDrive.style.display='none'; 
+    //  let h1foundDrive = document.getElementById("h1gefundeneFahrten");
+    //  h1foundDrive.style.display='none'; 
+    //  //let open-dialog = document.getElementById("open-dialog");
+    //  //open-dialog.style.display='none';
+    //  }
 
-     function showTable() {
-     let foundDrive = document.getElementById("gefundeneFahrten");
-     foundDrive.style.display='block'; 
-     let h1foundDrive = document.getElementById("h1gefundeneFahrten");
-     foundDrive.style.display='block'; 
-     //let open-dialog = document.getElementById("open-dialog");
-     //open-dialog.style.display='block';
-     }
+    //  function showTable() {
+    //  let foundDrive = document.getElementById("gefundeneFahrten");
+    //  foundDrive.style.display='block'; 
+    //  let h1foundDrive = document.getElementById("h1gefundeneFahrten");
+    //  foundDrive.style.display='block'; 
+    //  //let open-dialog = document.getElementById("open-dialog");
+    //  //open-dialog.style.display='block';
+    //  }
 
     function checkEntriesStart(){
-    // let inputs = document.getElementsByTagName('input');
     let noInput = false;
-
+    // let noFutureDate = false;
+    
     let seekedStart = $("#seekedStart");
     let seekedDestination = $("#seekedDestination");
     let seekedDate = $("#seekedDate");
 
-//     for(let i = 0; i < inputs.length; i++){
-//        if(inputs[i].value == ""){
-//            noInput = true;
-//        }
-//    }
-   if(seekedStart.value == "" && seekedDestination.value == "" && seekedDate == ""){
+   if(seekedStart.value == "" || seekedDestination.value == "" || seekedDate == ""){
        noInput = true;
    }
+   
    let select = document.getElementById('seekedTime');
    if(select.value == "Bitte auswählen ..."){
        noInput = true;
    }
-    if(!noInput){
-       showTable();
-    }
+
+   let today = new Date();
+   let givenDate = document.getElementById('seekedDate');
+   let givenDateString = givenDate.value;
+   let givenDateArray = givenDateString.split('-');
+   let givenDateFinal = new Date(givenDateArray[0], givenDateArray[1] - 1, givenDateArray[2]);
+
+if (givenDateFinal.getTime() < today.getTime()) {
+    // noFutureDate = true;
+    alert("Bitte Datum in der Zukunft angeben");
+            }
+    // if(!noInput && !noFutureDate){
+    //    showTable();
+    // }
     if(noInput){
         alert("Bitte Daten eingeben");
    }
@@ -426,10 +422,7 @@ document.querySelector('#open-dialog').addEventListener('click', toggleDialog);
           pagebackground = document.querySelector('body');
               
       if (!dialog.hasAttribute('open')) {
-          
-          // show the dialog 
           dialog.setAttribute('open','open');
-          // after displaying the dialog, focus the closebutton inside it
           closebutton.focus();
           closebutton.addEventListener('click', toggleDialog);
           var div = document.createElement('div');
@@ -443,12 +436,8 @@ document.querySelector('#open-dialog').addEventListener('click', toggleDialog);
           lastFocus.focus();
         
       }
-  //   src="https://cdn.jsdelivr.net/npm/sweetalert2@9"
   }
 
-
-
-  
     </script>
 
     </body>
