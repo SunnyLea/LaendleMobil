@@ -32,6 +32,7 @@ This web-application uses the following technology stack:
 
 Preconditions and Installation
 The following preconditions are required to run this application:
+- MySQL server running on localhost port 3306 with username root and no password
 -	install XAMPP
 
   o	visit https://www.apachefriends.org/de/download.html
