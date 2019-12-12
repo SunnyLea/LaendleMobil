@@ -84,8 +84,6 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <!--<a class="navbar-brand" href="#">Menü</a>-->
-        
         <img src="LogoWEBFertigRichtig.png" style="width: 20%;height: 20%;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,41 +97,54 @@
                 <a class="nav-item nav-link active" href="imprint.html">Impressum</a>
             </div>
         </div>
-    </nav>
-
+    </nav> 
     
-        <div class="grid-container">
+    <div class="grid-container">
         <div class="show"></div>
+        <div class="content">
 
-            <div class="content">
-                <br />
-                <div class="hervorhebung">
+            <br />
+            <div class="hervorhebung">
                 <p>
                     <h1>Fahrt suchen</h1>
                 </p>
             </div>
-                <br />
-                <section>
-                    <!--<form action="index.php" method="get">-->
-                    <form method="get">
+            <br />
+
+            <section>
+                <form method="get">
                     <table id="table1">
                         <tr>
-                            <td style="font-size: 130%">Abfahrtsort: </td>
-                            <td><input id="seekedStart" type="text" name="abfahrtsort" style="font-size: 130%;"></input></td>
+                            <td style="font-size: 130%">
+                                Abfahrtsort: 
+                            </td>
+                            <td>
+                                <input id="seekedStart" type="text" name="abfahrtsort" style="font-size: 130%;"></input>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="font-size: 130%">Ankunftsort: </td>
-                            <td><input id="seekedDestination" type="text" name="ankunftsort" style="font-size: 130%;"></input></td>
+                            <td style="font-size: 130%">
+                                Ankunftsort: 
+                            </td>
+                            <td>
+                                <input id="seekedDestination" type="text" name="ankunftsort" style="font-size: 130%;"></input>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="font-size: 130%">Datum: </td>
-                            <td><input id="seekedDate" type="date" name="datum" style="font-size: 130%;"></input></td>
+                            <td style="font-size: 130%">
+                                Datum: 
+                            </td>
+                            <td>
+                                <input id="seekedDate" type="date" name="datum" style="font-size: 130%;"></input>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="font-size: 130%">Zeitraum: </td>
+                            <td style="font-size: 130%">
+                                Zeitraum: 
+                            </td>
                             <td>
                                 <select id="seekedTime" name="zeitraum">
-                                    <<option style="font-size: 95%;">Bitte auswählen ...</option>
+                                    <option style="font-size: 95%;">Bitte auswählen ...</option>
                                     <option style="font-size: 95%;">vor 7 Uhr</option>
                                     <option style="font-size: 95%;">7 bis 9 Uhr</option>
                                     <option style="font-size: 95%;">9 bis 11 Uhr</option>
@@ -150,105 +161,119 @@
                     <br />
                     <input type="submit" value="Fahrt suchen" onclick="checkEntriesStart()" 
                     onclick="loadTable()" style="font-size: 95%; border-color: orange;">
-                    <br /><br />
-                    <!--<button onclick="checkEntriesStart()" onclick="showTable()">Fahrt suchen</button>-->
-                    </form>
-                </section>
+                    <br />
+                    <br />
+                </form>
+            </section>
 
-                <br />
-
-                <section>
-                        <div data-role="page" id="drives" data-theme="b">
-                                <div data-role="main" class="ui-content">
-                              <h1 id="h1gefundeneFahrten">Gefundene Fahrten</h1>
-                              <br />
-                           <form method="get">
-                     <!--      <form action="buchung.php" method="get"> -->
-                           <table id="gefundeneFahrten" data-role="table" class="ui-responsive" data-mode="columntoggle" data-column-btn-text="Spalten" >
-                               <thead>
-                                   <tr>
-                                       <th>Fahrt-ID</th>
-                                       <th>Datum</th>
-                                       <th>Uhrzeit</th>
-                                       <th>Anbieter</th>
-                                       <th>Abfahrtsort</th>
-                                       <th>Ankunftsort</th>
-                                       <th>Freie Sitzplätze</th>
-                                       <th>Preis</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                               <?php
-                               
-                               foreach ($daten as $inhalt) {
-                                 //  print_r($daten);
-                               ?>
-                                   <tr>
-                                       <td><?php echo $inhalt->fahrt_id; ?></td>
-                                       <td>
-                                           <?php 
-                                           // echo $inhalt->datum; 
-                                           //print_r($daten->datum);
-                                           echo date("d.m.Y", strtotime($inhalt->datum));
-                                           ?>
-                                       </td>
-                                       <td><?php echo $inhalt->abfahrtszeit; ?></td>
-                                       <td>
-                                           <?php echo $inhalt->nachname; 
-                                                 echo " ";
-                                                 echo $inhalt->vorname; ?>
-                                       </td>
-                                       <td><?php echo $inhalt->abfahrtsort; ?></td>
-                                       <td><?php echo $inhalt->ankunftsort; ?></td>
-                                       <td><?php echo $inhalt->freieSitzplaetze; ?></td>
-                                       <td><?php echo $inhalt->preis; ?>€</td>
-                                       <td>
-                                       </td>
-                                   </tr>
-                               </form>
-                               <?php
-                               }
-                           
-                               ?>
-                               </tbody>
-                               </table>
-           
-              
-                       </div>
-                       
-                </section>
-                <button type="button" id="open-dialog"  style="font-size: 95%; border-color: orange;">Fahrt buchen</button>
-
-
-                <dialog role="dialog" aria-labelledby="dialog-heading">	
-                    <h1 id="dialog-heading">Buchung</h1>
+            <br />
+            <section>
+                <div data-role="page" id="drives" data-theme="b">
+                    <div data-role="main" class="ui-content">
+                        <h1 id="h1gefundeneFahrten">
+                            Gefundene Fahrten
+                        </h1>
+                        <br />
+                        <form method="get">
+                            <table id="gefundeneFahrten" data-role="table" class="ui-responsive"
+                             data-mode="columntoggle" data-column-btn-text="Spalten" >
+                                <thead>
+                                    <tr>
+                                        <th>Fahrt-ID</th>
+                                        <th>Datum</th>
+                                        <th>Uhrzeit</th>
+                                        <th>Anbieter</th>
+                                        <th>Start</th>
+                                        <th>Ziel</th>
+                                        <th>Freie Plätze</th>
+                                        <th>Preis</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    
+                                    foreach ($daten as $inhalt) {
+                                        //  print_r($daten);
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $inhalt->fahrt_id; ?></td>
+                                        <td>
+                                            <?php 
+                                            // echo $inhalt->datum; 
+                                            //print_r($daten->datum);
+                                            echo date("d.m.Y", strtotime($inhalt->datum));
+                                            ?>
+                                        </td>
+                                        <td><?php echo $inhalt->abfahrtszeit; ?></td>
+                                        <td>
+                                            <?php echo $inhalt->nachname; 
+                                                    echo " ";
+                                                    echo $inhalt->vorname; ?>
+                                        </td>
+                                        <td><?php echo $inhalt->abfahrtsort; ?></td>
+                                        <td><?php echo $inhalt->ankunftsort; ?></td>
+                                        <td><?php echo $inhalt->freieSitzplaetze; ?></td>
+                                        <td><?php echo $inhalt->preis; ?>€</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </form>
+                                <?php
+                                }
+                            
+                                ?>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>           
+                </div>
                     
-                    <form  method="POST">
+            </section>
+                <button type="button" id="open-dialog"  style="font-size: 95%; border-color: orange;">
+                    Fahrt buchen
+                </button>
+                <dialog role="dialog" aria-labelledby="dialog-heading">	
+                    <button id="close-dialog" style="font-size: 95%; border-color: orange; 
+                        height: 100%; width: 30%; float: right;">
+                        Schließen
+                    </button>    
+                    <h1 id="dialog-heading">
+                        Buchung
+                    </h1>
+                    <br />
                     <table>
                         <tr>
-                            <td>Fahrt-ID: </td>
-                            <td><input id="fahrt_id" type="number" min="1" name="fahrt_id" style="font-size: 95%;"></input></td>
+                            <td>
+                                Fahrt-ID: 
+                            </td>
+                            <td>
+                                <input id="fahrt_id" type="number" min="1" name="fahrt_id" style="font-size: 95%;"></input>
+                            </td>
                         </tr>
                         <tr>
-                            <td>E-Mail: </td>
-                            <td><input id="email_buchung" type="email" name="email_buchung" style="font-size: 95%;"></input></td>
+                            <td>
+                                E-Mail: 
+                            </td>
+                            <td>
+                                <input id="email_buchung" type="email" name="email_buchung" style="font-size: 95%;"></input>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Name: </td>
-                            <td><input id="name_buchung" type="text" name="name_buchung" style="font-size: 95%;"></input></td>
+                            <td>
+                                Name: 
+                            </td>
+                            <td>
+                                <input id="name_buchung" type="text" name="name_buchung" style="font-size: 95%;"></input>
+                            </td>
                         </tr>
                     </table>
                     <br />
-                    <button id="close-dialog" style="font-size: 95%; border-color: orange;">Schließen</button>
-                   <input type="button" onclick="postBuchung()" value="Buchen" 
-                   style="font-size: 95%; border-color: orange;"></input>
-                    </form>  
-                 </dialog>
-                <br />
-
+                    <input type="button" onclick="postBuchung()" value="Buchen" 
+                    style="font-size: 95%; border-color: orange; height: 100%; width: 100%;" ></input>
+                    <br />
+                </dialog>
             </div>
         </div>
-
     </div>
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
